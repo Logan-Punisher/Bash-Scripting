@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#################################################
+# Author: Josh John                             #
+# Date: 14th-March                              #
+#                                               #
+# Version: v1.0                                 #
+# This script will report the aws resource usage#
+#################################################
+
+
+# Tracking of : EC2, S3,Lambda,IAM User
+
+set -x
+# Listing The s3 buckets
+aws s3 ls > Trackers
+
+# Listing Ec2 instance
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId' > Trackers
+
+# Listing Lambda function
+aws lambda list-functions > Tracker
+
+# Listing IAM Users
+aws iam list-users > Tracker
+
+echo "Hello There.!"
