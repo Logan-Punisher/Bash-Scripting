@@ -2,6 +2,7 @@
 
 # GitHub API URL
 API_URL="https://api.github.com"
+helper()
 
 # GitHub username and personal access token
 USERNAME=$username
@@ -36,6 +37,14 @@ function list_users_with_read_access {
     fi
 }
 
+
+function helper {
+    required_args=2
+    if [ $# -ne $required_args ]; then 
+        echo "Enter the required args properly"
+        echo "asd"
+    fi
+}
 # Main script
 
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
